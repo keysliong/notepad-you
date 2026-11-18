@@ -285,6 +285,7 @@ footer .brand img { width: 30px; height: 30px; }
     <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M13 2.5 5 13.5h6l-1 8 8-11h-6l1-8Z"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-.9-2.5-3.8ZM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3Z"/></symbol>
     <symbol id="i-windows" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.3 10.5 4v7.3H3V5.3Zm8.5-1.5L21 2.5v8.8h-9.5V3.8ZM3 12.7h7.5V20L3 18.7v-6Zm8.5 0H21v8.8l-9.5-1.3v-7.5Z"/></symbol>
   </defs>
 </svg>
@@ -313,17 +314,19 @@ footer .brand img { width: 30px; height: 30px; }
       <div>
         <span class="chip reveal" style="--d:.05s"><span class="dot"></span>Версия 1.1 · бесплатно</span>
         <h1 class="reveal" style="--d:.12s">Записи, которые <span class="accent">радуют</span></h1>
-        <p class="lead reveal" style="--d:.2s">Notepad You — красивый блокнот для Windows в стиле Material You. Markdown с живым предпросмотром, цветовые темы, плавные анимации и кнопки-печеньки.</p>
-        <div class="cta reveal" style="--d:.28s">
-          <a class="btn btn-primary btn-big js-download" href="download/NotepadYou-Setup.exe" download>
-            <svg><use href="#i-download"/></svg>Скачать для Windows
+        <p class="lead reveal" style="--d:.2s">Notepad You — красивый блокнот для Windows и Mac в стиле Material You. Markdown с живым предпросмотром, цветовые темы, плавные анимации и кнопки-печеньки.</p>
+        <div class="cta reveal" style="--d:.28s" id="heroCta">
+          <a class="btn btn-primary btn-big js-download js-win" href="download/NotepadYou-Setup.exe" download data-file="NotepadYou-Setup.exe">
+            <svg><use href="#i-windows"/></svg>Скачать для Windows
           </a>
-          <a class="btn btn-tonal" href="#demo">Посмотреть</a>
+          <a class="btn btn-tonal btn-big js-download js-mac" href="download/NotepadYou.dmg" download data-file="NotepadYou.dmg">
+            <svg><use href="#i-apple"/></svg>Скачать для Mac
+          </a>
         </div>
         <div class="meta reveal" style="--d:.36s">
           <span><svg><use href="#i-windows"/></svg>Windows 10 и 11</span>
-          <span><svg><use href="#i-check"/></svg>Без прав администратора</span>
-          <span><svg><use href="#i-check"/></svg>≈ 10 МБ</span>
+          <span><svg><use href="#i-apple"/></svg>macOS 11 и новее</span>
+          <span><svg><use href="#i-check"/></svg>Бесплатно, без регистрации</span>
         </div>
       </div>
       <div class="hero-art reveal" style="--d:.2s" id="heroArt">
@@ -401,8 +404,8 @@ footer .brand img { width: 30px; height: 30px; }
         <p>Установщик в том же стиле Material You, с анимациями. Права администратора не нужны.</p>
       </div>
       <div class="steps">
-        <div class="step reveal"><div class="num"><span class="cookie" data-cookie="9" data-depth="0.1"></span><span>1</span></div><h3>Скачайте</h3><p>Нажмите «Скачать для Windows» — загрузится NotepadYou-Setup.exe.</p><span class="deco" data-cookie="9" data-depth="0.1"></span></div>
-        <div class="step reveal"><div class="num"><span class="cookie" data-cookie="7" data-depth="0.12"></span><span>2</span></div><h3>Установите</h3><p>Запустите файл и нажмите «Установить». Ярлыки в «Пуске» и на рабочем столе появятся сами.</p><span class="deco" data-cookie="7" data-depth="0.12"></span></div>
+        <div class="step reveal"><div class="num"><span class="cookie" data-cookie="9" data-depth="0.1"></span><span>1</span></div><h3>Скачайте</h3><p>Для Windows — установщик NotepadYou-Setup.exe, для Mac — образ NotepadYou.dmg.</p><span class="deco" data-cookie="9" data-depth="0.1"></span></div>
+        <div class="step reveal"><div class="num"><span class="cookie" data-cookie="7" data-depth="0.12"></span><span>2</span></div><h3>Установите</h3><p>Windows: запустите файл и нажмите «Установить». Mac: откройте .dmg и перетащите Notepad You в «Программы».</p><span class="deco" data-cookie="7" data-depth="0.12"></span></div>
         <div class="step reveal"><div class="num"><span class="cookie" data-cookie="12" data-depth="0.08"></span><span>3</span></div><h3>Пишите</h3><p>Откройте Notepad You — короткое обучение покажет, где что находится.</p><span class="deco" data-cookie="12" data-depth="0.08"></span></div>
       </div>
     </div>
@@ -421,6 +424,13 @@ footer .brand img { width: 30px; height: 30px; }
           <div class="answer">
             <p>Так SmartScreen реагирует на новые программы без платной цифровой подписи. Нажмите <kbd>Подробнее</kbd>, затем <kbd>Выполнить в любом случае</kbd>.</p>
             <p>Скачивайте установщик только с этого сайта.</p>
+          </div>
+        </details>
+        <details class="reveal">
+          <summary>Mac пишет «Не удаётся проверить разработчика». Как открыть?<span class="plus"><svg width="16" height="16"><use href="#i-plus"/></svg></span></summary>
+          <div class="answer">
+            <p>У Notepad You нет платной подписи Apple, поэтому при первом запуске macOS предупреждает. Один раз сделайте так:</p>
+            <p>Откройте <kbd>Системные настройки</kbd> → <kbd>Конфиденциальность и безопасность</kbd>, пролистайте вниз и нажмите <kbd>Всё равно открыть</kbd> рядом с Notepad You. На старых версиях macOS можно просто нажать на приложение правой кнопкой → <kbd>Открыть</kbd>.</p>
           </div>
         </details>
         <details class="reveal">
@@ -451,7 +461,7 @@ footer .brand img { width: 30px; height: 30px; }
         <span class="deco" data-cookie="7" data-depth="0.14" style="width:180px;right:-50px;bottom:-60px;animation-direction:reverse"></span>
         <h2>Готовы попробовать?</h2>
         <p>Установка займёт меньше минуты.</p>
-        <a class="btn btn-big js-download" href="download/NotepadYou-Setup.exe" download><svg><use href="#i-download"/></svg>Скачать Notepad You</a>
+        <a class="btn btn-big js-download js-final" href="download/NotepadYou-Setup.exe" download data-file="NotepadYou-Setup.exe"><svg><use href="#i-download"/></svg>Скачать Notepad You</a>
       </div>
     </div>
   </section>
@@ -591,10 +601,23 @@ footer .brand img { width: 30px; height: 30px; }
     });
   });
 
+  // Определяем систему посетителя: на Mac главной делаем кнопку для Mac
+  var isMac = /Mac|iPhone|iPad/.test(navigator.platform || "") || /Mac OS X/.test(navigator.userAgent);
+  if (isMac) {
+    var cta = document.getElementById("heroCta"), win = cta.querySelector(".js-win"), mac = cta.querySelector(".js-mac");
+    win.classList.replace("btn-primary", "btn-tonal"); mac.classList.replace("btn-tonal", "btn-primary");
+    cta.insertBefore(mac, win);
+    var fin = document.querySelector(".js-final");
+    fin.href = "download/NotepadYou.dmg"; fin.dataset.file = "NotepadYou.dmg";
+  }
+
   var toast = document.getElementById("toast"), toastTimer;
   document.querySelectorAll(".js-download").forEach(function (a) {
     a.addEventListener("click", function () {
-      toast.textContent = "Загрузка началась! Запустите NotepadYou-Setup.exe, когда он скачается.";
+      var mac = a.dataset.file === "NotepadYou.dmg";
+      toast.textContent = mac
+        ? "Загрузка началась! Откройте NotepadYou.dmg и перетащите Notepad You в «Программы»."
+        : "Загрузка началась! Запустите NotepadYou-Setup.exe, когда он скачается.";
       toast.classList.add("show"); clearTimeout(toastTimer);
       toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 4200);
     });
