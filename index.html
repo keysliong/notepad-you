@@ -58,7 +58,36 @@ header.top.scrolled { box-shadow: 0 1px 0 var(--outline-variant); }
   transition: background-color .2s var(--ease), color .2s var(--ease);
 }
 .top nav a:hover { background: var(--secondary-container); color: var(--on-secondary-container); }
-@media (max-width: 760px) { .top nav { display: none; } .top .theme-btn { margin-left: auto; } }
+.gh-btn {
+  display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px 0 12px; border-radius: 20px;
+  background: var(--on-surface); color: var(--surface); text-decoration: none; font-weight: 700; font-size: 15px;
+  transition: border-radius .35s var(--ease), transform .2s var(--ease), background-color .5s var(--ease), color .5s var(--ease);
+}
+.gh-btn:hover { border-radius: 12px; }
+.gh-btn:active { transform: scale(.95); }
+.gh-btn svg { width: 20px; height: 20px; flex: none; }
+.gh-btn .stars { display: inline-flex; align-items: center; gap: 3px; padding-left: 8px; margin-left: 2px; border-left: 1px solid color-mix(in srgb, var(--surface) 35%, transparent); }
+.gh-btn .stars svg { width: 15px; height: 15px; color: #f6c445; }
+@media (max-width: 760px) { .top nav { display: none; } .top .gh-btn { margin-left: auto; } }
+@media (max-width: 420px) { .gh-btn .gh-label { display: none; } }
+
+/* ------------------------------------------------------------ счётчики */
+.stats { padding: 8px 0 24px; }
+.stats .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+@media (max-width: 760px) { .stats .grid { grid-template-columns: 1fr; } }
+.stat {
+  display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: var(--radius-l);
+  background: var(--surface-low); color: var(--on-surface); text-decoration: none;
+  transition: transform .35s var(--ease-spring), background-color .5s var(--ease), border-radius .35s var(--ease);
+}
+.stat:hover { transform: translateY(-3px); border-radius: var(--radius-xl); }
+.stat .ico { position: relative; width: 56px; height: 56px; flex: none; display: grid; place-items: center; color: var(--on-primary-container); }
+.stat .ico .cookie-bg { position: absolute; inset: 0; color: var(--primary-container); transition: transform .6s var(--ease-spring); }
+.stat:hover .ico .cookie-bg { transform: rotate(45deg); }
+.stat .ico svg.ic { position: relative; width: 26px; height: 26px; }
+.stat .num { font-size: 34px; font-weight: 700; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.stat .num.loading { opacity: .35; }
+.stat .lbl { color: var(--on-surface-variant); font-size: 15px; }
 
 /* ------------------------------------------------------------ кнопки */
 .btn {
@@ -287,6 +316,10 @@ footer .brand img { width: 30px; height: 30px; }
     <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-.9-2.5-3.8ZM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3Z"/></symbol>
     <symbol id="i-android" viewBox="0 0 24 24"><path fill="currentColor" d="M17.6 9.48 19.44 6.3a.38.38 0 0 0-.66-.38l-1.87 3.23A11.4 11.4 0 0 0 12 8.12c-1.77 0-3.45.39-4.91 1.03L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52ZM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.8a10.2 10.2 0 0 0-3.2 19.9c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.7-1.1-4.7-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .9-.3 2.8 1a9.6 9.6 0 0 1 5.1 0c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.7 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.2 10.2 0 0 0 12 1.8Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9L12 2.8Z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M2.5 20c.6-3.5 3.2-5.5 6.5-5.5s5.9 2 6.5 5.5"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.8c1.9.7 3.2 2.4 3.5 5.2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
     <symbol id="i-windows" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.3 10.5 4v7.3H3V5.3Zm8.5-1.5L21 2.5v8.8h-9.5V3.8ZM3 12.7h7.5V20L3 18.7v-6Zm8.5 0H21v8.8l-9.5-1.3v-7.5Z"/></symbol>
   </defs>
 </svg>
@@ -300,6 +333,10 @@ footer .brand img { width: 30px; height: 30px; }
       <a href="#install">Установка</a>
       <a href="#faq">Вопросы</a>
     </nav>
+    <a class="gh-btn js-github" href="https://github.com/keysliong/notepad-you-app" target="_blank" rel="noopener" aria-label="Notepad You на GitHub">
+      <svg><use href="#i-github"/></svg><span class="gh-label">GitHub</span>
+      <span class="stars" hidden><svg><use href="#i-star"/></svg><span class="js-stars"></span></span>
+    </a>
     <button class="icon-btn theme-btn" id="themeBtn" aria-label="Сменить тему">
       <span class="cookie-bg" data-cookie="9" data-depth="0.09"></span>
       <svg class="ic"><use href="#i-moon"/></svg>
@@ -317,13 +354,13 @@ footer .brand img { width: 30px; height: 30px; }
         <h1 class="reveal" style="--d:.12s">Записи, которые <span class="accent">радуют</span></h1>
         <p class="lead reveal" style="--d:.2s">Notepad You — красивый блокнот для Windows, Mac и Android в стиле Material You. Markdown с живым предпросмотром, цветовые темы, плавные анимации и кнопки-печеньки.</p>
         <div class="cta reveal" style="--d:.28s" id="heroCta">
-          <a class="btn btn-primary btn-big js-download js-win" href="download/NotepadYou-Setup.exe" download data-file="NotepadYou-Setup.exe">
+          <a class="btn btn-primary btn-big js-download js-win" href="https://github.com/keysliong/notepad-you-app/releases/latest/download/NotepadYou-Setup.exe" download data-file="NotepadYou-Setup.exe">
             <svg><use href="#i-windows"/></svg>Скачать для Windows
           </a>
-          <a class="btn btn-tonal btn-big js-download js-mac" href="download/NotepadYou.dmg" download data-file="NotepadYou.dmg">
+          <a class="btn btn-tonal btn-big js-download js-mac" href="https://github.com/keysliong/notepad-you-app/releases/latest/download/NotepadYou.dmg" download data-file="NotepadYou.dmg">
             <svg><use href="#i-apple"/></svg>Скачать для Mac
           </a>
-          <a class="btn btn-tonal btn-big js-download js-android" href="download/NotepadYou.apk" download data-file="NotepadYou.apk">
+          <a class="btn btn-tonal btn-big js-download js-android" href="https://github.com/keysliong/notepad-you-app/releases/latest/download/NotepadYou.apk" download data-file="NotepadYou.apk">
             <svg><use href="#i-android"/></svg>Скачать для Android
           </a>
         </div>
@@ -342,6 +379,20 @@ footer .brand img { width: 30px; height: 30px; }
         <span class="orbit o3" data-cookie="6" data-depth="0.18"></span>
         <img src="img/icon.png" alt="Иконка Notepad You — печенька с листком">
       </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= СЧЁТЧИКИ -->
+  <section class="stats" aria-label="Notepad You в цифрах">
+    <div class="wrap grid">
+      <div class="stat reveal">
+        <span class="ico"><span class="cookie-bg" data-cookie="9" data-depth="0.09"></span><svg class="ic"><use href="#i-users"/></svg></span>
+        <span><span class="num loading" id="statDownloads">—</span><span class="lbl" style="display:block">скачали Notepad You</span></span>
+      </div>
+      <a class="stat reveal js-github" href="https://github.com/keysliong/notepad-you-app" target="_blank" rel="noopener">
+        <span class="ico"><span class="cookie-bg" data-cookie="12" data-depth="0.07"></span><svg class="ic"><use href="#i-github"/></svg></span>
+        <span><span class="num loading" id="statStars">—</span><span class="lbl" style="display:block">звёзд на GitHub — поставьте свою ⭐</span></span>
+      </a>
     </div>
   </section>
 
@@ -455,7 +506,7 @@ footer .brand img { width: 30px; height: 30px; }
         </details>
         <details class="reveal">
           <summary>Как удалить Notepad You?<span class="plus"><svg width="16" height="16"><use href="#i-plus"/></svg></span></summary>
-          <div class="answer"><p>Через ярлык «Удалить Notepad You» в меню «Пуск», через «Параметры → Приложения» или <a href="download/NotepadYou-Uninstall.exe" download>отдельным удалятором</a>. Ваши заметки при этом не удаляются.</p></div>
+          <div class="answer"><p>Через ярлык «Удалить Notepad You» в меню «Пуск», через «Параметры → Приложения» или <a href="https://github.com/keysliong/notepad-you-app/releases/latest/download/NotepadYou-Uninstall.exe" download>отдельным удалятором</a>. Ваши заметки при этом не удаляются.</p></div>
         </details>
         <details class="reveal">
           <summary>Нужен ли интернет?<span class="plus"><svg width="16" height="16"><use href="#i-plus"/></svg></span></summary>
@@ -473,7 +524,7 @@ footer .brand img { width: 30px; height: 30px; }
         <span class="deco" data-cookie="7" data-depth="0.14" style="width:180px;right:-50px;bottom:-60px;animation-direction:reverse"></span>
         <h2>Готовы попробовать?</h2>
         <p>Установка займёт меньше минуты.</p>
-        <a class="btn btn-big js-download js-final" href="download/NotepadYou-Setup.exe" download data-file="NotepadYou-Setup.exe"><svg><use href="#i-download"/></svg>Скачать Notepad You</a>
+        <a class="btn btn-big js-download js-final" href="https://github.com/keysliong/notepad-you-app/releases/latest/download/NotepadYou-Setup.exe" download data-file="NotepadYou-Setup.exe"><svg><use href="#i-download"/></svg>Скачать Notepad You</a>
       </div>
     </div>
   </section>
@@ -639,8 +690,49 @@ footer .brand img { width: 30px; height: 30px; }
         : "Загрузка началась! Запустите NotepadYou-Setup.exe, когда он скачается.";
       toast.classList.add("show"); clearTimeout(toastTimer);
       toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 4200);
+      if (downloads !== null && !/Uninstall/.test(file)) setStat("statDownloads", ++downloads);
     });
   });
+
+  /* ---------------------------------------------------------- счётчики */
+  var REPO = "https://api.github.com/repos/keysliong/notepad-you-app";
+  var downloads = null;
+  function fmt(n) { return n.toLocaleString("ru-RU"); }
+  function setStat(id, v) {
+    var el = document.getElementById(id);
+    el.classList.remove("loading");
+    if (v === null) { el.textContent = "—"; return; }
+    var from = parseInt((el.textContent || "").replace(/\D/g, ""), 10) || 0;
+    if (reduceMotion || from === v) { el.textContent = fmt(v); return; }
+    var t0 = performance.now(), dur = 1100;
+    (function step(t) {
+      var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = fmt(Math.round(from + (v - from) * e));
+      if (k < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Скачивания: файлы лежат в релизах GitHub, он сам считает каждое скачивание
+  fetch(REPO + "/releases?per_page=100")
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (rels) {
+      downloads = 0;
+      rels.forEach(function (rel) { rel.assets.forEach(function (a) { if (!/Uninstall/.test(a.name)) downloads += a.download_count; }); });
+      setStat("statDownloads", downloads);
+    })
+    .catch(function () { setStat("statDownloads", null); });
+
+  // Звёзды репозитория на GitHub
+  fetch(REPO)
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (j) {
+      var n = j.stargazers_count || 0;
+      setStat("statStars", n);
+      document.querySelector(".js-stars").textContent = fmt(n);
+      document.querySelector(".gh-btn .stars").hidden = false;
+    })
+    .catch(function () { setStat("statStars", null); });
 
   // Иконка в герое слегка следит за курсором
   var art = document.getElementById("heroArt"), img = art.querySelector("img");
